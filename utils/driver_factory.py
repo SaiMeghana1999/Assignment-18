@@ -7,7 +7,6 @@ class DriverFactory:
 
     @staticmethod
     def get_driver():
-
         options = webdriver.ChromeOptions()
         options.add_argument("--start-maximized")
 

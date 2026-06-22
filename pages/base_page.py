@@ -9,18 +9,12 @@ class BasePage:
         self.wait = WebDriverWait(driver, 20)
 
     def click(self, locator):
-        self.wait.until(
-            EC.element_to_be_clickable(locator)
-        ).click()
+        self.wait.until(EC.element_to_be_clickable(locator)).click()
 
     def enter_text(self, locator, text):
-        element = self.wait.until(
-            EC.visibility_of_element_located(locator)
-        )
+        element = self.wait.until(EC.visibility_of_element_located(locator))
         element.clear()
         element.send_keys(text)
 
     def get_element(self, locator):
-        return self.wait.until(
-            EC.visibility_of_element_located(locator)
-        )
+        return self.wait.until(EC.visibility_of_element_located(locator))

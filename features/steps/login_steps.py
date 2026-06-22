@@ -9,7 +9,6 @@ import time
 
 @given('User opens Zen Portal')
 def open_portal(context):
-
     context.driver.get(URL)
 
     context.login = LoginPage(
@@ -19,25 +18,21 @@ def open_portal(context):
 
 @then('Username textbox should be visible')
 def validate_username(context):
-
     assert context.login.validate_email_box()
 
 
 @then('Password textbox should be visible')
 def validate_password(context):
-
     assert context.login.validate_password_box()
 
 
 @then('Sign In button should be visible')
 def validate_signin(context):
-
     assert context.login.validate_signin_button()
 
 
 @when('User enters valid credentials')
 def valid_login(context):
-
     context.login.login(
         VALID_EMAIL,
         VALID_PASSWORD
@@ -50,14 +45,12 @@ def valid_login(context):
 
 @then('Login should be successful')
 def success(context):
-
     assert "dashboard" in \
            context.driver.current_url
 
 
 @when('User enters invalid credentials')
 def invalid_login(context):
-
     context.login.login(
         INVALID_EMAIL,
         INVALID_PASSWORD
@@ -68,14 +61,12 @@ def invalid_login(context):
 
 @then('Login should fail')
 def failure(context):
-
     assert "login" in \
            context.driver.current_url
 
 
 @when('User logs in')
 def login_logout(context):
-
     context.login.login(
         VALID_EMAIL,
         VALID_PASSWORD
@@ -88,7 +79,6 @@ def login_logout(context):
 
 @then('User should logout successfully')
 def logout(context):
-
     dashboard = DashboardPage(
         context.driver
     )
